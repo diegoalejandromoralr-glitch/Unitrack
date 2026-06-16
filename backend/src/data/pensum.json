@@ -1,0 +1,17 @@
+{
+  "vertices": [
+    { "codigo": "MAT101", "nombre": "Matemática Básica" },
+    { "codigo": "INF101", "nombre": "Introducción a la Programación" },
+    { "codigo": "MAT201", "nombre": "Cálculo Diferencial" },
+    { "codigo": "INF201", "nombre": "Estructura de Datos" },
+    { "codigo": "INF301", "nombre": "Algoritmos Avanzados" },
+    { "codigo": "INF401", "nombre": "Base de Datos" }
+  ],
+  "edges": [
+    { "from": "MAT101", "to": "MAT201" },
+    { "from": "MAT101", "to": "INF101" },
+    { "from": "INF101", "to": "INF201" },
+    { "from": "INF201", "to": "INF301" },
+    { "from": "INF101", "to": "INF401" }
+  ]
+}

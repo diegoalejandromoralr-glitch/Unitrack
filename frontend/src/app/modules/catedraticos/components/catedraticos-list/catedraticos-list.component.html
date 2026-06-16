@@ -1,0 +1,36 @@
+<h1>Directorio de Catedráticos</h1>
+<p class="subtitle">Tabla Hash con encadenamiento y linear probing</p>
+
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="showForm = !showForm">
+    {{ showForm ? 'Cancelar' : 'Nuevo Catedrático' }}
+  </button>
+</div>
+
+@if (showForm) {
+  <div class="card-panel">
+    <app-catedraticos-form (saved)="onSaved()"></app-catedraticos-form>
+  </div>
+}
+
+<div class="card-panel">
+  <h3>Visualización — Tabla Hash</h3>
+  <app-hash-table-visual [visualData]="visualData" (configChange)="onConfigChange($event)"></app-hash-table-visual>
+</div>
+
+<div class="card-panel">
+  <table mat-table [dataSource]="catedraticos" class="full-width">
+    <ng-container matColumnDef="codigo"><th mat-header-cell *matHeaderCellDef>Código</th><td mat-cell *matCellDef="let c">{{ c.codigo }}</td></ng-container>
+    <ng-container matColumnDef="nombre"><th mat-header-cell *matHeaderCellDef>Nombre</th><td mat-cell *matCellDef="let c">{{ c.nombre }}</td></ng-container>
+    <ng-container matColumnDef="apellido"><th mat-header-cell *matHeaderCellDef>Apellido</th><td mat-cell *matCellDef="let c">{{ c.apellido }}</td></ng-container>
+    <ng-container matColumnDef="especialidad"><th mat-header-cell *matHeaderCellDef>Especialidad</th><td mat-cell *matCellDef="let c">{{ c.especialidad }}</td></ng-container>
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let c">
+        <button mat-icon-button color="warn" (click)="deleteCatedratico(c.codigo)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

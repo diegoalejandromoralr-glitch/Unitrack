@@ -1,0 +1,58 @@
+<h1>Mapa de Pensum</h1>
+<p class="subtitle">Grafo Dirigido de Prerrequisitos</p>
+
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="showForm = !showForm">
+    {{ showForm ? 'Cancelar' : 'Agregar Curso/Prerrequisito' }}
+  </button>
+  <button mat-raised-button color="accent" (click)="loadTopologicalSort()">Ordenamiento Topológico</button>
+</div>
+
+@if (hasCycle) {
+  <div class="cycle-warning">⚠ El grafo contiene ciclos</div>
+}
+
+@if (showForm) {
+  <div class="card-panel">
+    <app-pensum-form (saved)="onSaved()"></app-pensum-form>
+  </div>
+}
+
+<div class="controls card-panel">
+  <mat-form-field appearance="outline">
+    <mat-label>Curso seleccionado</mat-label>
+    <mat-select [(ngModel)]="selectedNodeId" (selectionChange)="onNodeSelect()">
+      @for (node of graphData.nodes; track node.id) {
+        <mat-option [value]="node.id">{{ node.id }} — {{ node.data?.nombre }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <div class="path-finder">
+    <mat-form-field appearance="outline"><mat-label>Desde</mat-label><input matInput [(ngModel)]="pathFrom"></mat-form-field>
+    <mat-form-field appearance="outline"><mat-label>Hasta</mat-label><input matInput [(ngModel)]="pathTo"></mat-form-field>
+    <button mat-stroked-button (click)="findPath()">Camino corto</button>
+  </div>
+
+  @if (shortestPath) {
+    <div class="path-result">Camino: {{ shortestPath.join(' → ') }}</div>
+  }
+</div>
+
+<div class="card-panel">
+  <app-graph-visual
+    [graphData]="graphData"
+    [bfsResult]="bfsResult"
+    [dfsResult]="dfsResult"
+    [topologicalOrder]="topologicalOrder"
+    [selectedNodeId]="selectedNodeId"
+    [prerequisiteIds]="prerequisiteIds"
+    [unlocksIds]="unlocksIds">
+  </app-graph-visual>
+</div>
+
+<div class="legend">
+  <span class="legend-item prereq">Verde = Prerrequisitos</span>
+  <span class="legend-item unlock">Azul = Desbloquea</span>
+  <span class="legend-item selected">Naranja = Seleccionado</span>
+</div>

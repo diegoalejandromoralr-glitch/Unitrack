@@ -1,0 +1,16 @@
+<mat-tab-group>
+  <mat-tab label="Agregar Curso">
+    <form class="form-grid" (ngSubmit)="addCurso()">
+      <mat-form-field appearance="outline"><mat-label>Código</mat-label><input matInput [(ngModel)]="curso.codigo" name="codigo" required></mat-form-field>
+      <mat-form-field appearance="outline"><mat-label>Nombre</mat-label><input matInput [(ngModel)]="curso.nombre" name="nombre" required></mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Agregar Curso</button>
+    </form>
+  </mat-tab>
+  <mat-tab label="Agregar Prerrequisito">
+    <form class="form-grid" (ngSubmit)="addPrerrequisito()">
+      <mat-form-field appearance="outline"><mat-label>Prerrequisito (from)</mat-label><input matInput [(ngModel)]="prerrequisito.from" name="from" required></mat-form-field>
+      <mat-form-field appearance="outline"><mat-label>Curso destino (to)</mat-label><input matInput [(ngModel)]="prerrequisito.to" name="to" required></mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Agregar Arista</button>
+    </form>
+  </mat-tab>
+</mat-tab-group>

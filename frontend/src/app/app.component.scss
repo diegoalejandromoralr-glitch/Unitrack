@@ -1,0 +1,24 @@
+.app-container {
+  height: 100vh;
+}
+
+.app-sidenav {
+  width: 260px;
+  background: var(--color-primary);
+}
+
+.main-content {
+  padding: 1.5rem;
+  background: var(--color-bg);
+  min-height: calc(100vh - 64px);
+}
+
+@media (max-width: 768px) {
+  .app-sidenav {
+    width: 220px;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,25 @@
+<div class="graph-controls">
+  <button mat-raised-button color="primary" (click)="startBfsAnimation()" [disabled]="!bfsResult.length">BFS paso a paso</button>
+  <button mat-raised-button color="primary" (click)="startDfsAnimation()" [disabled]="!dfsResult.length">DFS paso a paso</button>
+  <button mat-raised-button color="accent" (click)="nextAnimationStep()" [disabled]="animationStep < 0">Siguiente paso</button>
+</div>
+
+@if (currentAnimationNode) {
+  <div class="animation-info">
+    {{ animationMode?.toUpperCase() }} paso {{ animationStep + 1 }}:
+    {{ currentAnimationNode.codigo }} (nivel/prof: {{ currentAnimationNode.level ?? currentAnimationNode.depth }})
+  </div>
+}
+
+@if (topologicalOrder.length) {
+  <div class="topo-list">
+    <h4>Ordenamiento Topológico</h4>
+    <ol>
+      @for (item of topologicalOrder; track item.codigo; let i = $index) {
+        <li>{{ i + 1 }}. {{ item.codigo }} — {{ item.data?.nombre }}</li>
+      }
+    </ol>
+  </div>
+}
+
+<div #networkContainer class="network-container"></div>

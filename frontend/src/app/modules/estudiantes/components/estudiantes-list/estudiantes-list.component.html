@@ -1,0 +1,71 @@
+<h1>Gestión de Estudiantes</h1>
+<p class="subtitle">Lista Enlazada Simple + Historial (Lista Doblemente Enlazada)</p>
+
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="showForm = !showForm">
+    {{ showForm ? 'Cancelar' : 'Nuevo Estudiante' }}
+  </button>
+  <button mat-raised-button color="accent" (click)="invertirLista()">Invertir Lista</button>
+</div>
+
+@if (showForm) {
+  <div class="card-panel">
+    <app-estudiantes-form (saved)="onEstudianteSaved()"></app-estudiantes-form>
+  </div>
+}
+
+<div class="card-panel">
+  <h3>Visualización — Lista Enlazada</h3>
+  <app-linked-list-visual [nodes]="visualNodes" (nodeClick)="onNodeClick($event)"></app-linked-list-visual>
+</div>
+
+<div class="card-panel">
+  <table mat-table [dataSource]="estudiantes" class="full-width">
+    <ng-container matColumnDef="carnet">
+      <th mat-header-cell *matHeaderCellDef>Carnet</th>
+      <td mat-cell *matCellDef="let e">{{ e.carnet }}</td>
+    </ng-container>
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let e">{{ e.nombre }}</td>
+    </ng-container>
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef>Apellido</th>
+      <td mat-cell *matCellDef="let e">{{ e.apellido }}</td>
+    </ng-container>
+    <ng-container matColumnDef="carrera">
+      <th mat-header-cell *matHeaderCellDef>Carrera</th>
+      <td mat-cell *matCellDef="let e">{{ e.carrera }}</td>
+    </ng-container>
+    <ng-container matColumnDef="semestre">
+      <th mat-header-cell *matHeaderCellDef>Semestre</th>
+      <td mat-cell *matCellDef="let e">{{ e.semestreActual }}</td>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let e">
+        <button mat-icon-button color="primary" (click)="selectEstudiante(e)" title="Ver historial">
+          <mat-icon>history</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteEstudiante(e.carnet)" title="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        [class.selected-row]="row.carnet === selectedCarnet"
+        (click)="selectEstudiante(row)"></tr>
+  </table>
+</div>
+
+@if (selectedCarnet) {
+  <div class="card-panel">
+    <h3>Historial — {{ selectedEstudiante?.nombre }} {{ selectedEstudiante?.apellido }} ({{ selectedCarnet }})</h3>
+    <div class="historial-actions">
+      <button mat-stroked-button (click)="sortHistorial('semestre')">Ordenar por Semestre</button>
+      <button mat-stroked-button (click)="sortHistorial('nota')">Ordenar por Nota</button>
+    </div>
+    <app-historial-visual [nodes]="historialNodes"></app-historial-visual>
+  </div>
+}

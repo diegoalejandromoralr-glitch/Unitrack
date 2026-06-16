@@ -1,0 +1,79 @@
+.hash-config {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.buckets-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.bucket-row {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+}
+
+.bucket-index {
+  width: 40px;
+  background: var(--color-secondary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px 0 0 4px;
+  font-weight: bold;
+}
+
+.chain-bucket, .probing-bucket {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.chain-item {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.probing-bucket.occupied {
+  background: #d4edda;
+}
+
+.probing-bucket.empty {
+  background: #f8f9fa;
+  color: #999;
+}
+
+.probing-bucket.deleted {
+  background: #f8d7da;
+  color: var(--color-danger);
+}
+
+.empty-label {
+  color: #999;
+  font-style: italic;
+}

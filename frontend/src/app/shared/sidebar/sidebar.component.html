@@ -1,0 +1,14 @@
+<div class="sidebar-header">
+  <h3>Módulos</h3>
+  <p>Estructuras de datos</p>
+</div>
+
+<mat-nav-list>
+  @for (mod of modules; track mod.path) {
+    <a mat-list-item [routerLink]="mod.path" routerLinkActive="active">
+      <mat-icon matListItemIcon>{{ mod.icon }}</mat-icon>
+      <span matListItemTitle>{{ mod.label }}</span>
+      <span matListItemLine class="structure-label">{{ mod.structure }}</span>
+    </a>
+  }
+</mat-nav-list>

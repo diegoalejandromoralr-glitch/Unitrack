@@ -1,0 +1,11 @@
+.subtitle { color: #666; margin-top: -0.5rem; }
+.actions { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.controls { display: flex; flex-direction: column; gap: 1rem; }
+.path-finder { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.path-result { background: var(--color-secondary); color: white; padding: 0.75rem; border-radius: 6px; }
+.cycle-warning { background: #f8d7da; color: var(--color-danger); padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+.legend { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.legend-item { padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; }
+.prereq { background: #d4edda; }
+.unlock { background: #cce5ff; }
+.selected { background: #fff3cd; }

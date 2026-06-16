@@ -1,0 +1,8 @@
+<div class="historial-controls">
+  <button mat-raised-button color="primary" (click)="anterior()" [disabled]="currentIndex === 0">← Anterior</button>
+  <span class="info" *ngIf="currentNode">
+    {{ currentNode.data.codigoCurso }} — {{ currentNode.data.semestre }} — Nota: {{ currentNode.data.nota }}
+  </span>
+  <button mat-raised-button color="primary" (click)="siguiente()" [disabled]="currentIndex >= nodes.length - 1">Siguiente →</button>
+</div>
+<svg #svgContainer width="100%" height="200"></svg>

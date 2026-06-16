@@ -1,0 +1,8 @@
+<form class="form-grid" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline"><mat-label>Código</mat-label><input matInput [(ngModel)]="curso.codigo" name="codigo" required></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Nombre</mat-label><input matInput [(ngModel)]="curso.nombre" name="nombre" required></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Créditos</mat-label><input matInput [(ngModel)]="curso.creditos" name="creditos" type="number"></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Horario</mat-label><input matInput [(ngModel)]="curso.horario" name="horario"></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Cupo Máximo</mat-label><input matInput [(ngModel)]="curso.cupoMaximo" name="cupo" type="number"></mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Guardar</button>
+</form>

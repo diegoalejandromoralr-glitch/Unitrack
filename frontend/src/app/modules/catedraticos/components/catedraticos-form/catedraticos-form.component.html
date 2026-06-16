@@ -1,0 +1,8 @@
+<form class="form-grid" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline"><mat-label>Código</mat-label><input matInput [(ngModel)]="catedratico.codigo" name="codigo" required></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Nombre</mat-label><input matInput [(ngModel)]="catedratico.nombre" name="nombre" required></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Apellido</mat-label><input matInput [(ngModel)]="catedratico.apellido" name="apellido" required></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Especialidad</mat-label><input matInput [(ngModel)]="catedratico.especialidad" name="especialidad"></mat-form-field>
+  <mat-form-field appearance="outline"><mat-label>Correo</mat-label><input matInput [(ngModel)]="catedratico.correo" name="correo" type="email"></mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Guardar</button>
+</form>

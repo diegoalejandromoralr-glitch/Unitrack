@@ -1,0 +1,62 @@
+[
+  {
+    "carnet": "2024001",
+    "nombre": "María",
+    "apellido": "García",
+    "correo": "maria@uni.edu.gt",
+    "fechaNacimiento": "2002-03-15",
+    "carrera": "Ingeniería en Sistemas",
+    "semestreActual": 3,
+    "historial": [
+      { "codigoCurso": "MAT101", "semestre": "2023-1", "nota": 85, "estado": "completada" },
+      { "codigoCurso": "INF101", "semestre": "2023-1", "nota": 92, "estado": "completada" }
+    ]
+  },
+  {
+    "carnet": "2024002",
+    "nombre": "Carlos",
+    "apellido": "López",
+    "correo": "carlos@uni.edu.gt",
+    "fechaNacimiento": "2001-07-20",
+    "carrera": "Ingeniería en Sistemas",
+    "semestreActual": 5,
+    "historial": [
+      { "codigoCurso": "MAT101", "semestre": "2022-1", "nota": 78, "estado": "completada" },
+      { "codigoCurso": "INF201", "semestre": "2022-2", "nota": 88, "estado": "completada" }
+    ]
+  },
+  {
+    "carnet": "2024003",
+    "nombre": "Ana",
+    "apellido": "Martínez",
+    "correo": "ana@uni.edu.gt",
+    "fechaNacimiento": "2003-01-10",
+    "carrera": "Ingeniería en Sistemas",
+    "semestreActual": 1,
+    "historial": []
+  },
+  {
+    "carnet": "2024004",
+    "nombre": "Luis",
+    "apellido": "Pérez",
+    "correo": "luis@uni.edu.gt",
+    "fechaNacimiento": "2000-11-05",
+    "carrera": "Ingeniería en Sistemas",
+    "semestreActual": 7,
+    "historial": [
+      { "codigoCurso": "INF301", "semestre": "2023-2", "nota": 91, "estado": "completada" }
+    ]
+  },
+  {
+    "carnet": "2024005",
+    "nombre": "Sofia",
+    "apellido": "Ramírez",
+    "correo": "sofia@uni.edu.gt",
+    "fechaNacimiento": "2002-09-25",
+    "carrera": "Ingeniería en Sistemas",
+    "semestreActual": 2,
+    "historial": [
+      { "codigoCurso": "MAT101", "semestre": "2023-1", "nota": 95, "estado": "completada" }
+    ]
+  }
+]

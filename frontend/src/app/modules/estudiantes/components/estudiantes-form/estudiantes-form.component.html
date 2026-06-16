@@ -1,0 +1,34 @@
+<form class="form-grid" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Carnet</mat-label>
+    <input matInput [(ngModel)]="estudiante.carnet" name="carnet" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="estudiante.nombre" name="nombre" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido</mat-label>
+    <input matInput [(ngModel)]="estudiante.apellido" name="apellido" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Correo</mat-label>
+    <input matInput [(ngModel)]="estudiante.correo" name="correo" type="email">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha Nacimiento</mat-label>
+    <input matInput [(ngModel)]="estudiante.fechaNacimiento" name="fechaNacimiento" type="date">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Semestre Actual</mat-label>
+    <input matInput [(ngModel)]="estudiante.semestreActual" name="semestre" type="number">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Posición en lista</mat-label>
+    <mat-select [(ngModel)]="posicion" name="posicion">
+      <mat-option value="end">Al final</mat-option>
+      <mat-option value="beginning">Al inicio</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Guardar</button>
+</form>

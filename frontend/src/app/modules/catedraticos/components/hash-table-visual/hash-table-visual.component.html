@@ -1,0 +1,56 @@
+<div class="hash-config">
+  <mat-form-field appearance="outline">
+    <mat-label>Función Hash</mat-label>
+    <mat-select [(ngModel)]="hashFunc">
+      <mat-option value="division">División</mat-option>
+      <mat-option value="djb2">DJB2</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Método de Colisión</mat-label>
+    <mat-select [(ngModel)]="collisionMethod">
+      <mat-option value="chaining">Chaining</mat-option>
+      <mat-option value="linear_probing">Linear Probing</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="applyConfig()">Aplicar</button>
+</div>
+
+@if (visualData?.stats) {
+  <div class="stats-panel">
+    <div><strong>Tamaño:</strong> {{ visualData.stats.size }}</div>
+    <div><strong>Elementos:</strong> {{ visualData.stats.count }}</div>
+    <div><strong>Factor de carga:</strong> {{ visualData.stats.loadFactor }}</div>
+    <div><strong>Colisiones:</strong> {{ visualData.stats.collisions }}</div>
+  </div>
+}
+
+<div class="buckets-container">
+  @for (bucket of visualData?.buckets || []; track bucket.index) {
+    <div class="bucket-row">
+      <span class="bucket-index">{{ bucket.index }}</span>
+      @if (bucket.type === 'chain') {
+        <div class="chain-bucket">
+          @for (item of bucket.items; track item.key) {
+            <span class="chain-item">{{ item.key }} — {{ item.data.nombre }}</span>
+          }
+          @if (!bucket.items.length) {
+            <span class="empty-label">vacío</span>
+          }
+        </div>
+      } @else {
+        <div class="probing-bucket" [ngClass]="getStatusClass(bucket.status)">
+          @if (bucket.status === 'occupied') {
+            {{ bucket.item.key }} — {{ bucket.item.data.nombre }}
+          } @else if (bucket.status === 'deleted') {
+            ELIMINADO
+          } @else {
+            vacío
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

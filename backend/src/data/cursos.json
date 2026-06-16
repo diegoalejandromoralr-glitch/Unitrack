@@ -1,0 +1,8 @@
+[
+  { "codigo": "MAT101", "nombre": "Matemática Básica", "creditos": 4, "horario": "L-M 08:00-10:00", "cupoMaximo": 30 },
+  { "codigo": "INF101", "nombre": "Introducción a la Programación", "creditos": 4, "horario": "M-J 10:00-12:00", "cupoMaximo": 25 },
+  { "codigo": "INF201", "nombre": "Estructura de Datos", "creditos": 5, "horario": "L-M-V 08:00-09:00", "cupoMaximo": 25 },
+  { "codigo": "INF301", "nombre": "Algoritmos Avanzados", "creditos": 5, "horario": "M-J 14:00-16:00", "cupoMaximo": 20 },
+  { "codigo": "MAT201", "nombre": "Cálculo Diferencial", "creditos": 4, "horario": "L-M 10:00-12:00", "cupoMaximo": 30 },
+  { "codigo": "INF401", "nombre": "Base de Datos", "creditos": 4, "horario": "V 08:00-12:00", "cupoMaximo": 20 }
+]

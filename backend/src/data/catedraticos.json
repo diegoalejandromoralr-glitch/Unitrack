@@ -1,0 +1,6 @@
+[
+  { "codigo": "CAT001", "nombre": "Roberto", "apellido": "Juárez", "especialidad": "Algoritmos", "correo": "rjuarez@uni.edu.gt" },
+  { "codigo": "CAT002", "nombre": "Elena", "apellido": "Morales", "especialidad": "Bases de Datos", "correo": "emorales@uni.edu.gt" },
+  { "codigo": "CAT003", "nombre": "Jorge", "apellido": "Castillo", "especialidad": "Redes", "correo": "jcastillo@uni.edu.gt" },
+  { "codigo": "CAT004", "nombre": "Patricia", "apellido": "Vásquez", "especialidad": "Matemáticas", "correo": "pvasquez@uni.edu.gt" }
+]
